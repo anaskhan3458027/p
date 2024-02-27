@@ -1,0 +1,46 @@
+<!-- Page 1 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 1</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: #e6f7ff url('img1.jpg') no-repeat center center fixed; /* Light blue background with image */
+            background-size: cover;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 50px; /* Circle button */
+            background-color: #007bff; /* Blue color */
+            color: #fff; /* White text */
+            animation: pulse 1.5s infinite; /* Animation */
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <button onclick="showPage2()">Click me</button>
+
+    <script>
+        function showPage2() {
+            window.location.href = 'page2.html';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 3</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            background-color: #e6f7ff; /* Light blue background */
+            position: relative;
+        }
+        #result {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        #congratulations {
+            font-size: 50px;
+            color: #28a745; /* Green color for congratulations */
+        }
+        #answers {
+            text-align: left;
+            max-width: 600px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #partyStickers {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: -1; /* Place stickers behind the content */
+        }
+        .partySticker {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+        }
+        .bubble1 { top: 50px; left: 50px; }
+        .bubble2 { top: 150px; left: 250px; }
+        .bubble3 { top: 300px; left: 100px; }
+        /* Add more stickers and adjust positions as needed */
+    </style>
+</head>
+<body>
+    <div id="result">
+        <h2 id="congratulations">Congratulations!</h2>
+        <p>You have successfully completed the contest.</p>
+        <p>Time taken: <span id="timeTaken"></span></p>
+    </div>
+
+    <div id="answers">
+        <h3>Your Answers:</h3>
+        <p>Answer 1: <span id="q1Answer"></span></p>
+        <p>Answer 2: <span id="q2Answer"></span></p>
+        <p>Answer 3: <span id="q3Answer"></span></p>
+        <p>Answer 4: <span id="q4Answer"></span></p>
+        <p>Answer 5: <span id="q5Answer"></span></p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const timeTaken = localStorage.getItem('timeTaken');
+            document.getElementById('timeTaken').textContent = timeTaken || 'Not available';
+
+            const q1Answer = localStorage.getItem('q1');
+            const q2Answer = localStorage.getItem('q2');
+            const q3Answer = localStorage.getItem('q3');
+            const q4Answer = localStorage.getItem('q4');
+            const q5Answer = localStorage.getItem('q5');
+
+            document.getElementById('q1Answer').textContent = q1Answer || 'Not answered';
+            document.getElementById('q2Answer').textContent = q2Answer || 'Not answered';
+            document.getElementById('q3Answer').textContent = q3Answer || 'Not answered';
+            document.getElementById('q4Answer').textContent = q4Answer || 'Not answered';
+            document.getElementById('q5Answer').textContent = q5Answer || 'Not answered';
+        });
+    </script>
+</body>
+</html>

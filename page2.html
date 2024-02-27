@@ -1,0 +1,192 @@
+<!-- Page 2 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 2</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #e6f7ff; /* Light blue background */
+        }
+        #question-page {
+            text-align: center;
+            max-width: 600px;
+            margin: auto;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .choices {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        .choice {
+            margin-bottom: 10px;
+        }
+        #timer {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 50px; /* Circle button */
+            background-color: #007bff; /* Blue color */
+            color: #fff; /* White text */
+            animation: pulse 1.5s infinite; /* Animation */
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div id="question-page">
+        <div id="timer">Time Left: <span id="countdown">5:00</span></div>
+        
+        <div class="question">Question 1: What is the full form of HTML?</div>
+        <div class="choices">
+            <div class="choice">
+                <input type="radio" name="q1" value="Hyper text Markup Language"> Hyper text Markup Language
+            </div>
+            <div class="choice">
+                <input type="radio" name="q1" value="HyperTransfer Markup Language"> HyperTransfer Markup Language
+            </div>
+            <div class="choice">
+                <input type="radio" name="q1" value="High text Markup Language"> High text Markup Language
+            </div>
+            <div class="choice">
+                <input type="radio" name="q1" value="Hyper text Modeling Language"> Hyper text Modeling Language
+            </div>
+        </div>
+
+        <div class="question">Question 2: What is the full form of CSS?</div>
+        <div class="choices">
+            <div class="choice">
+                <input type="radio" name="q2" value="Cascading Style Sheet"> Cascading Style Sheet
+            </div>
+            <div class="choice">
+                <input type="radio" name="q2" value="Computer Style Sheet"> Computer Style Sheet
+            </div>
+            <div class="choice">
+                <input type="radio" name="q2" value="Colorful Style Sheet"> Colorful Style Sheet
+            </div>
+            <div class="choice">
+                <input type="radio" name="q2" value="Creative Style Sheet"> Creative Style Sheet
+            </div>
+        </div>
+
+        <div class="question">Question 3: 30th January is celebrated as:</div>
+        <div class="choices">
+            <div class="choice">
+                <input type="radio" name="q3" value="Republic Day"> Republic Day
+            </div>
+            <div class="choice">
+                <input type="radio" name="q3" value="Independence Day"> Independence Day
+            </div>
+            <div class="choice">
+                <input type="radio" name="q3" value="Martyrs’ Day"> Martyrs’ Day
+            </div>
+            <div class="choice">
+                <input type="radio" name="q3" value="Gandhi Jayanti"> Gandhi Jayanti
+            </div>
+        </div>
+
+        <div class="question">Question 4: Name the largest river in the world?</div>
+        <div class="choices">
+            <div class="choice">
+                <input type="radio" name="q4" value="Nile"> Nile
+            </div>
+            <div class="choice">
+                <input type="radio" name="q4" value="Amazon"> Amazon
+            </div>
+            <div class="choice">
+                <input type="radio" name="q4" value="Yangtze"> Yangtze
+            </div>
+            <div class="choice">
+                <input type="radio" name="q4" value="Mississippi"> Mississippi
+            </div>
+        </div>
+
+        <div class="question">Question 5: Where is Gir National Park located?</div>
+        <div class="choices">
+            <div class="choice">
+                <input type="radio" name="q5" value="Karnataka"> Karnataka
+            </div>
+            <div class="choice">
+                <input type="radio" name="q5" value="Madhya Pradesh"> Madhya Pradesh
+            </div>
+            <div class="choice">
+                <input type="radio" name="q5" value="Gujarat"> Gujarat
+            </div>
+            <div class="choice">
+                <input type="radio" name="q5" value="Rajasthan"> Rajasthan
+            </div>
+        </div>
+
+        <!-- Add more questions and choices as needed -->
+
+        <button onclick="saveAndShowPage3()">Submit</button>
+    </div>
+
+    <script>
+        let timeLeft = 300;
+        const countdownElement = document.getElementById('countdown');
+
+        function updateCountdown() {
+            const minutes = Math.floor(timeLeft / 60);
+            const seconds = timeLeft % 60;
+            countdownElement.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        }
+
+        function saveAndShowPage3() {
+            const answers = {
+                q1: document.querySelector('input[name="q1"]:checked'),
+                q2: document.querySelector('input[name="q2"]:checked'),
+                q3: document.querySelector('input[name="q3"]:checked'),
+                q4: document.querySelector('input[name="q4"]:checked'),
+                q5: document.querySelector('input[name="q5"]:checked')
+            };
+
+            // Save chosen options to localStorage or set "Not answered" if no option selected
+            localStorage.setItem('q1', answers.q1 ? answers.q1.value : 'Not answered');
+            localStorage.setItem('q2', answers.q2 ? answers.q2.value : 'Not answered');
+            localStorage.setItem('q3', answers.q3 ? answers.q3.value : 'Not answered');
+            localStorage.setItem('q4', answers.q4 ? answers.q4.value : 'Not answered');
+            localStorage.setItem('q5', answers.q5 ? answers.q5.value : 'Not answered');
+
+            window.location.href = 'page3.html';
+        }
+
+        function redirectToPage3() {
+            window.location.href = 'page3.html';
+        }
+
+        setInterval(function () {
+            timeLeft--;
+            updateCountdown();
+
+            if (timeLeft === 0) {
+                saveAndShowPage3();
+            }
+        }, 1000);
+
+        // Redirect to Page 3 at 00:00:00
+        setTimeout(function () {
+            redirectToPage3();
+        }, timeLeft * 1000);
+    </script>
+</body>
+</html>
