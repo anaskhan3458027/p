@@ -1,4 +1,3 @@
-<!-- Page 2 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +11,7 @@
             justify-content: center;
             height: 100vh;
             margin: 0;
-            background-color: #e6f7ff; /* Light blue background */
+            background-color: #e6f7ff;
         }
         #question-page {
             text-align: center;
@@ -40,10 +39,10 @@
             font-size: 16px;
             cursor: pointer;
             border: none;
-            border-radius: 50px; /* Circle button */
-            background-color: #007bff; /* Blue color */
-            color: #fff; /* White text */
-            animation: pulse 1.5s infinite; /* Animation */
+            border-radius: 50px; 
+            background-color: #007bff; 
+            color: #fff; 
+            animation: pulse 1.5s infinite; 
         }
         @keyframes pulse {
             0% { transform: scale(1); }
@@ -136,7 +135,7 @@
             </div>
         </div>
 
-        <!-- Add more questions and choices as needed -->
+  
 
         <button onclick="saveAndShowPage3()">Submit</button>
     </div>
@@ -160,7 +159,6 @@
                 q5: document.querySelector('input[name="q5"]:checked')
             };
 
-            // Save chosen options to localStorage or set "Not answered" if no option selected
             localStorage.setItem('q1', answers.q1 ? answers.q1.value : 'Not answered');
             localStorage.setItem('q2', answers.q2 ? answers.q2.value : 'Not answered');
             localStorage.setItem('q3', answers.q3 ? answers.q3.value : 'Not answered');
@@ -183,7 +181,6 @@
             }
         }, 1000);
 
-        // Redirect to Page 3 at 00:00:00
         setTimeout(function () {
             redirectToPage3();
         }, timeLeft * 1000);
